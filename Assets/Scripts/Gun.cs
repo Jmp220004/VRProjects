@@ -1,35 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Gun : MonoBehaviour
 {
     [Header("Gun Settings")]
     [SerializeField] private int _ammoCurrent;
-    [SerializeField] private int _ammoMax;
-    [SerializeField] public bool _clipLoaded;
+    [SerializeField] public Clip _insertClip;
+    [Space]
+    [SerializeField] private UnityEvent _onFire;
+    [SerializeField] private UnityEvent _onFireNoAmmo;
     [Space]
     [Header("Fill References")]
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private GameObject _bulletHolePrefab;
-
+    [SerializeField] private XRSocketInteractor _clipSocket;
 
     public void attemptFire()
     {
         //Only fire if the clip is loaded
-        if(_clipLoaded)
+        if(_insertClip != null)
         {
             //If the gun has ammo, shoot a bullet. If the gun has no ammo, play the "fail shoot sound"
             if(_ammoCurrent > 0)
             {
                 _ammoCurrent--;
                 shootBullet();
-                //Play fire sound
+                _onFire.Invoke();
             }
             else
             {
-                //Play fail sound
+                _onFireNoAmmo.Invoke();
             }
+        }
+        else
+        {
+            _onFireNoAmmo.Invoke();
         }
     }
 
@@ -42,6 +50,24 @@ public class Gun : MonoBehaviour
         {
             Instantiate(_bulletHolePrefab, hit.point, _shootPoint.rotation);
         }
+    }
+
+    public void loadClip()
+    {
+        GameObject loadedClipObject = _clipSocket.GetOldestInteractableSelected().transform.gameObject;
+        _insertClip = loadedClipObject.GetComponent<Clip>();
+        if(_insertClip != null)
+        {
+            _ammoCurrent = _insertClip.bullets;
+            _insertClip.disableArt();
+        }
+    }
+
+    public void unloadClip()
+    {
+        _insertClip?.enableArt();
+        _insertClip.bullets = _ammoCurrent;
+        _insertClip = null;
     }
 
     private void OnDrawGizmosSelected()
