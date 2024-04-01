@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour
     [Space]
     [Header("Fill References")]
     [SerializeField] private Transform _shootPoint;
+    [SerializeField] private GameObject _bulletHolePrefab;
 
 
     public void attemptFire()
@@ -39,7 +40,7 @@ public class Gun : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit))
         {
-
+            Instantiate(_bulletHolePrefab, hit.point, _shootPoint.rotation);
         }
     }
 

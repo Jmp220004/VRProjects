@@ -166,7 +166,6 @@ GameObject:
   - component: {fileID: 6914941159006551889}
   - component: {fileID: 6914941159006551890}
   - component: {fileID: 6914941159006551891}
-  - component: {fileID: 9057621510007704728}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -224,6 +223,8 @@ MonoBehaviour:
   _ammoMax: 7
   _clipLoaded: 0
   _shootPoint: {fileID: 6914941157930114758}
+  _bulletHolePrefab: {fileID: 6342563873993831998, guid: a84c8efbe831bb94bbf6a470f542cbac,
+    type: 3}
 --- !u!114 &6914941159006551889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,9 +273,9 @@ MonoBehaviour:
   m_Activated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6914941159006551891}
-        m_TargetAssemblyTypeName: PlayQuickSound, Assembly-CSharp
-        m_MethodName: Play
+      - m_Target: {fileID: 7749105565123888750}
+        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
+        m_MethodName: attemptFire
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -462,22 +463,6 @@ MonoBehaviour:
   sound: {fileID: 8300000, guid: d306fcf87f5874a5888091cab90ba4a5, type: 3}
   volume: 1
   randomPitchVariance: 0
---- !u!114 &9057621510007704728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6914941159006551892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af63a9a1e925e6a43924b21084c010cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ammoCurrent: 0
-  _ammoMax: 0
-  _clipLoaded: 0
-  _shootPoint: {fileID: 0}
 --- !u!1001 &6486494224589845855
 PrefabInstance:
   m_ObjectHideFlags: 0
