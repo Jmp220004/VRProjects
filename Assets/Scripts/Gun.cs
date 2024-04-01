@@ -10,7 +10,7 @@ public class Gun : MonoBehaviour
     [SerializeField] public bool _clipLoaded;
     [Space]
     [Header("Fill References")]
-    [SerializeField] Transform shootPoint;
+    [SerializeField] private Transform _shootPoint;
 
 
     public void attemptFire()
@@ -23,16 +23,33 @@ public class Gun : MonoBehaviour
             {
                 _ammoCurrent--;
                 shootBullet();
+                //Play fire sound
             }
             else
             {
-
+                //Play fail sound
             }
         }
     }
 
     private void shootBullet()
     {
+        Ray ray = new Ray(_shootPoint.transform.position, _shootPoint.forward);
+        RaycastHit hit;
 
+        if(Physics.Raycast(ray, out hit))
+        {
+
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+
+        Ray ray = new Ray(_shootPoint.transform.position, _shootPoint.forward);
+        RaycastHit hit;
+        Physics.Raycast(ray, out hit);
+        Gizmos.DrawLine(_shootPoint.transform.position, hit.point);
     }
 }
