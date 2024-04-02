@@ -12,19 +12,27 @@ public class Target : MonoBehaviour
     }
     public void MoveUp()
     {
-        transform.Translate(0f, 1f, 0f);
+        transform.Translate(0f, 0f, 1f);
     }
     public void MoveDown()
     {
+        transform.Translate(0f, 0f, -1f);
+    }
+    public void MoveForward()
+    {
+        transform.Translate(0f, 1f, 0f);
+    }
+    public void MoveBackward()
+    {
         transform.Translate(0f, -1f, 0f);
     }
-    public void MoveLeft()
+
+    private void OnTriggerEnter(Collider other)
     {
-        transform.Translate(-1f, 0f, 0f);
-    }
-    public void MoveRight()
-    {
-        transform.Translate(1f, 0f, 0f);
+        if(other.tag == "wall")
+        {
+            transform.Translate(0f, 0f, 0f);
+        }
     }
 
     public void setTarget()
