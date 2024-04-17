@@ -4696,7 +4696,7 @@ MonoBehaviour:
   onRelease:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1688855587}
         m_TargetAssemblyTypeName: Target, Assembly-CSharp
         m_MethodName: MoveDown
         m_Mode: 1
@@ -4887,9 +4887,9 @@ MonoBehaviour:
   onRelease:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1688855587}
         m_TargetAssemblyTypeName: Target, Assembly-CSharp
-        m_MethodName: MoveBackward
+        m_MethodName: MoveForward
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6953,7 +6953,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Credits\n\nProject by: Jeremy Payte and Timothy Yabuki\n\nAll environmental
     assets shown are downloaded for free use from Sketchfab and is licensed under
-    Creative Commons Attribution and belong to their original owners. \n"
+    Creative Commons Attribution and belong to their original owners. \n\nThe Gun
+    and Clip assets were taken from the 1911 Pistol Pack on the Unity Asset Store"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9131,9 +9132,9 @@ MonoBehaviour:
   onRelease:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1688855587}
         m_TargetAssemblyTypeName: Target, Assembly-CSharp
-        m_MethodName: MoveForward
+        m_MethodName: MoveBackward
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9758,7 +9759,7 @@ MonoBehaviour:
   onRelease:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1688855587}
         m_TargetAssemblyTypeName: Target, Assembly-CSharp
         m_MethodName: MoveUp
         m_Mode: 1
@@ -11111,6 +11112,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 77683226915953700, guid: c69e8e3d28276084c941b0a1c770783a, type: 3}
+--- !u!114 &1688855587 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8228059365636525952, guid: 5d72bf7011417b949bc9995a83491c85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1688855578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688855579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 578596fe6dc41944b83c87f7b17856ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1707022205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11734,7 +11747,7 @@ MonoBehaviour:
   onRelease:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1688855587}
         m_TargetAssemblyTypeName: Target, Assembly-CSharp
         m_MethodName: setTarget
         m_Mode: 1
@@ -12742,13 +12755,88 @@ PrefabInstance:
       objectReference: {fileID: 139200558}
     - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
         type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
+        type: 3}
       propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1851718148}
+    - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1851718148}
     - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
         type: 3}
       propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: attemptFire
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1851718148}
+    - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: onRelease
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: onGrab
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Gun, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Gun, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
+        type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914941159006551889, guid: d7c7247f0d3102549a9855adabe2c677,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6914941159006551892, guid: d7c7247f0d3102549a9855adabe2c677,
         type: 3}
