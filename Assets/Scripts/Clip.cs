@@ -11,17 +11,28 @@ public class Clip : MonoBehaviour
     [SerializeField] private float _despawnTimeSeconds; //The time it takes for a clip to despawn after it's removed from a gun
 
     public void disableArt()
-    {
+    {  
         artToDisableOnLoad.SetActive(false);
     }
 
     //Fires when a clip is removed from the gun
     public void enableArt()
     {
+        
         artToDisableOnLoad.SetActive(true);
 
         StartCoroutine(checkDespawnClip());
         
+    }
+
+    public void disableClipHitbox()
+    {
+        grabCollider.SetActive(false);
+    }
+
+    public void enableClipHitbox()
+    {
+        grabCollider.SetActive(true);
     }
 
     private IEnumerator checkDespawnClip()

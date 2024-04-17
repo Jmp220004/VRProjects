@@ -21,10 +21,10 @@ public class Gun : MonoBehaviour
     public void attemptFire()
     {
         //Only fire if the clip is loaded
-        if(_insertClip != null)
+        if (_insertClip != null)
         {
             //If the gun has ammo, shoot a bullet. If the gun has no ammo, play the "fail shoot sound"
-            if(_ammoCurrent > 0)
+            if (_ammoCurrent > 0)
             {
                 _ammoCurrent--;
                 shootBullet();
@@ -46,9 +46,10 @@ public class Gun : MonoBehaviour
         Ray ray = new Ray(_shootPoint.transform.position, _shootPoint.forward);
         RaycastHit hit;
 
-        if(Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit))
         {
-            Instantiate(_bulletHolePrefab, hit.point, _shootPoint.rotation);
+            GameObject newBullet = Instantiate(_bulletHolePrefab, hit.point, _shootPoint.rotation);
+            newBullet.transform.parent = hit.collider.transform;
         }
     }
 
@@ -56,7 +57,7 @@ public class Gun : MonoBehaviour
     {
         GameObject loadedClipObject = _clipSocket.GetOldestInteractableSelected().transform.gameObject;
         _insertClip = loadedClipObject.GetComponent<Clip>();
-        if(_insertClip != null)
+        if (_insertClip != null)
         {
             _ammoCurrent = _insertClip.bullets;
             _insertClip.disableArt();
@@ -68,6 +69,16 @@ public class Gun : MonoBehaviour
         _insertClip?.enableArt();
         _insertClip.bullets = _ammoCurrent;
         _insertClip = null;
+    }
+
+    public void onGrab()
+    {
+        _insertClip?.enableClipHitbox();
+    }
+
+    public void onRelease()
+    {
+        _insertClip?.disableClipHitbox();
     }
 
     private void OnDrawGizmosSelected()
